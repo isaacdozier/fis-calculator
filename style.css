@@ -1,27 +1,7 @@
 #Content {
 	font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
     text-align: center;
-    overflow:auto;
-    height:100%;
-	width: 100%;
-}
-
-.alert{
-	vertical-align: middle;
-	font-size: 46px;
-}
-
-.layer{
-	height: 100px;
-}
-
-html, body {
-	height: 100%;
-	width: 100%;
-}
-
-body{
-	background-color: #5252523d
 }
 
 #input{
@@ -31,11 +11,106 @@ body{
     color: #dee2e6;
 }
 
+#ad {
+	margin-top: 24px;
+}
+
+.history{
+	margin-top: 24px;
+	margin-bottom: 24px;
+    border: 1px solid #1d21249e;
+    border-radius: 6px;
+    padding: 8px;
+    background: #1d2124;
+    outline: 0;
+    color: #dee2e6;
+    min-height: 280px;
+}
+
+.main{
+	margin: 0 auto;
+    padding-left: 24px;
+    min-height: 200px;
+}
+
+.top{
+	padding-top: 24px;
+	padding-bottom: 24px
+}
+
+.outputBox{
+	min-height: 180px;
+}
+
+.output{
+	padding-bottom: 10px;
+	padding-top: 10px
+}
+
+.error{
+	color: #e12339;
+}
+
+.info{
+	margin-top: 24px;
+	padding-top: 24px;
+	margin-bottom: 24px;
+	padding-bottom: 24px;
+	border: 1px solid #1d21249e;
+    border-radius: 6px;
+	background-color: #ffc10770
+}
+
+.converstion{
+	padding: 8px;
+}
+
+.updates{
+	padding: 8px;
+	text-align: left;
+}
+
+.updates p{
+	padding:8px;
+}
+
+.decimal{
+	font-size: 0.68em;
+	padding-left: 6px;
+    vertical-align: top;
+}
+
+.heading{
+	font-size: 16px;
+    font-family: monospace;
+}
+
+.solution{
+	font-size: 18px;
+}
+
+.rem-1{color: green}
+.rem--1{color: red}
+.rem-0, rem--0, rem-NaN{color: blue}
+
 .foot{
 	font-size: 10px;
 	font-weight: lighter;
-	color: #ffffff;
-	position: absolute;
-	bottom: 0px;
-	width: 100%
+	color: grey;
+}
+
+.button {
+	line-height: 26px;
+	margin: 4px 0px 2px 4px;
+}
+
+.inputBox {
+	margin-top: 10px;
+	border: none; 
+	background: transparent; 
+	outline: 0;
+}
+
+#result{
+	margin-top: 18px;
 }
