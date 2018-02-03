@@ -1,8 +1,6 @@
 var userInput = ''
 var tempActive = false
 
-var ad = '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9409668607681174" data-ad-slot="2527368291" data-ad-format="auto"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>'
-
 function calculate() {
     var temp = document.getElementById('input')
     if(event.keyCode == 13 || event.button == 0) {
@@ -28,53 +26,36 @@ function calculate() {
 }
 
 function doMath(exp){
-    var list = exp.split("+")
-    list.splice(0,0,0)
-    
-    //loop through expression, do some math
+    var list = exp.split("+").join("|+|")
+        list = list.split("-").join("|-|")
+        list = list.split("|")
+        
     while(list.length > 1){
         var A = list[0]
-        var B = list[1]
-        var tempB = B.split('-')
+        var BPlus = list[1] === '+'
+        var BMinus= list[1] === '-'
+        var C = list[2]
         
-        if(isFis(B)){
-            B = convertFisToDec(B)[0]
+        if(isFis(A)){A = convertFisToDec(A)} 
+        if(isFis(C)){C = convertFisToDec(C)} 
+        A = Number(A)
+        C = Number(C)
+        if(BPlus){
+            list[0] = A + C
         } 
-        
-        if(tempB.length > 1){
-            if(isFis(tempB[0])){
-                tempB[0] = convertFisToDec(tempB[0])[0]
-            }
-            while(tempB.length > 1){
-                console.log(tempB)
-                //convert numbers to decimal
-                if(isFis(tempB[0])){tempB[0] = convertFisToDec(tempB[0])[0]}
-                if(isFis(tempB[1])){tempB[1] = convertFisToDec(tempB[1])[0]}
-    
-                //subtract A from B
-                B = Number(tempB[0]) - Number(tempB[1])
-                tempB.splice(1,1)
-                console.log(tempB)
-                console.log(A)
-            }
+        else 
+        if(BMinus){
+            list[0] = A - C
         }
-        //add A and B
-        list[0] = Number(A) + Number(B)
-        list.splice(1,1)
         
-        console.log(list[0])
+        list.splice(1,2)
     }
-    // return Decimal and
-    // convert expression result to FIS standard
     return Number(list[0])
 }
 
-//var used in convertDecToFis() and convertFisToDec()
-var dec = 0
-
 function convertDecToFis(decimal){
     var temp = revZero(Number(decimal))
-    var inchTrue, footTrue, sixTrue, sixRoun, rem
+    var inchTrue, footTrue, sixTrue, sixRoun
     var foot = 0, inch = 0, six = 0
     var fis, result
     
@@ -82,30 +63,25 @@ function convertDecToFis(decimal){
     inchTrue = temp * 12
     sixTrue  = inchTrue * 16
     sixRoun = Math.round(sixTrue)
-   
     foot = Math.floor((sixRoun / 16) / 12)
     inch = Math.floor(sixRoun / 16) - (foot * 12)
     six  = sixRoun - (((foot * 12) + inch) * 16)
-    dec  = sixTrue - sixRoun
-    
     foot = revZero(foot)
     fis = foot + " - " + inch + " - " + six
-    rem = (dec*100).toFixed(2)
     
-    return [fis,rem]
+    return fis
 }
 
 function convertFisToDec(fis){
     var temp = fis.split('.')
-    
-    if(temp[0])
+    var dec
     
     temp[0] = revZero(temp[0])
     temp[1] = temp[1] / 12
     temp[2] = (temp[2] / 16) / 12
     dec = revZero((Number(temp[0]) + temp[1] + temp[2]).toFixed(3))
-    
-    return [dec]
+
+    return Number(dec)
 }
 
 function isNum(x){
@@ -113,7 +89,7 @@ function isNum(x){
 }
 
 function isFis(z){
-    var zArray = z.split('.')
+    var zArray = z.toString().split('.')
     tempActive = false
     
     if(zArray[0] === '' && zArray.length > 1){
@@ -130,8 +106,7 @@ function isFis(z){
 }
 
 function isExpression(y){
-    var len = y.split(/([-+])\w+/g).length > 1
-    return len
+    return y.toString().split(/([-+])\w+/g).length > 1
 }
 
 function revZero(np) {
@@ -159,10 +134,9 @@ function historyCheck(h){
 }
 
 //Print functions
-//
 function printOutput(a,b){
     output = "<div class='solution output'>" 
-                    + a + " = " + b[0] 
+                    + a + " = " + b 
                 + "</div>"
     
     //compile history
