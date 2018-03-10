@@ -17,7 +17,9 @@ function calculate() {
         } 
         else 
         if(isExpression(temp.value)){
-            printOutput(temp.value,convertDecToFis(doMath(temp.value)))
+            var tmp = doMath(temp.value)
+            printOutput(temp.value,convertDecToFis(tmp))
+            carryoverValue(tmp)
         } 
         else {
             printError(temp.value)
@@ -145,6 +147,10 @@ function printOutput(a,b){
     //clear input box & user message
     document.getElementById('input').value = ''
     document.getElementById('userMessage').innerHTML = ''
+}
+
+function carryoverValue(a){
+    document.getElementById('input').value = a
 }
 
 function printError(source){
