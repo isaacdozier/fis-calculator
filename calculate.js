@@ -30,18 +30,32 @@ function calculate() {
 function doMath(exp){
     var list = exp.split("+").join("|+|")
         list = list.split("-").join("|-|")
+        list = list.split("*").join("|*|")
+        list = list.split("/").join("|/|")
         list = list.split("|")
         
     while(list.length > 1){
         var A = list[0]
-        var BPlus = list[1] === '+'
-        var BMinus= list[1] === '-'
+        var BPlus     = list[1] === '+'
+        var BMinus    = list[1] === '-'
+        var BMultiply = list[1] === '*'
+        var BDivide   = list[1] === '/'
         var C = list[2]
         
         if(isFis(A)){A = convertFisToDec(A)} 
         if(isFis(C)){C = convertFisToDec(C)} 
         A = Number(A)
         C = Number(C)
+        
+        
+        if(BMultiply){
+            list[0] = A * C
+        }
+        else 
+        if(BDivide){
+            list[0] = A / C
+        }
+        else 
         if(BPlus){
             list[0] = A + C
         } 
@@ -49,6 +63,8 @@ function doMath(exp){
         if(BMinus){
             list[0] = A - C
         }
+        
+        
         
         list.splice(1,2)
     }
@@ -108,7 +124,7 @@ function isFis(z){
 }
 
 function isExpression(y){
-    return y.toString().split(/([-+])\w+/g).length > 1
+    return y.toString().split(/([-+*/])\w+/g).length > 1
 }
 
 function revZero(np) {

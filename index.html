@@ -30,31 +30,46 @@
 		
 		<div class="row">
 			<div class="col-sm-12 col-md-12 col-lg-4 history">
-				<span id="userMessage">Converts and calculates feet in decimal format to inch-fraction.<br /><br />This calculator can also convert inch-fraction to decimal format.<br /><br />Accurate to within 0.03125 of an inch (0.5 sixteenth).</span>
+				<span id="userMessage"><br />Converts and calculates feet in decimal format to inch-fraction.<br /><br />This calculator can also convert inch-fraction to decimal format.<br /><br />Accurate to within 0.03125 of an inch (0.5 sixteenth).</span>
 				<p id="result"></p>
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-8 main">
 				<div class="row">
+					<!--
 					<div class="col">
 						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 						<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9409668607681174" data-ad-slot="2527368291" data-ad-format="auto"></ins>
 						<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 					</div>
+					-->
 				</div>
 				<div class="row info">
 					<div class="conversion col-md">
 						<h3>Convert Numbers</h3>
-						<p>Decimal to Inch Fraction
+						<p>
+							  Decimal to Inch Fraction
 						<br />0.000  =  00-00-00
 						<br />
 						<br />Inch Fraction to Decimal
-						<br />00.00.00  =  0.000</p>
+						<br />00.00.00  =  0.000
+						</p>
 					</div>
 					<div class="conversion col-md">	
-						<h3>Convert Expressions</h3>
-						<p>0.00 +/- 0.00 = 00-00-00
-						<br />0.00 +/- 00.00.00 = 00-00-00
-						<br />00.00.00 +/- 00.00.00 = 00-00-00</p>
+						<h3>  Convert Expressions</h3>
+						<p>   Short Expressions
+						<br />*add|subtract|multiply|divide   
+						<br />0.00 * 0.00         = 00-00-00
+						<br />0.00 * 00.00.00     = 00-00-00
+						<br />00.00.00 * 00.00.00 = 00-00-00
+						</p>
+						
+						<p>   Long Expressions
+						<br />*add|subtract OR *multiply|divide 
+						<br />[to be patched in future version]
+						<br />0.00 * 0.00 * 0.00             = 00-00-00
+						<br />0.00 * 00.00.00 * 0.00         = 00-00-00
+						<br />00.00.00 * 00.00.00 * 00.00.00 = 00-00-00
+						</p>
 					</div>
 				</div>
 			</div>
@@ -65,12 +80,24 @@
 		<div class="row">
 			<div class="updates col">	
 				<h4>Important Updates</h4>
+				<!--
+				<p>v1.2.0-beta:
+					<br />[description of update] 
+				</p>
+				-->
+				
+				<p>v1.3.0-beta:
+					<br />Added Feature: division & multiplication.
+				</p>
+				
 				<p>v1.2.10-beta:
 					<br />Added Feature: expression result now auto populates the input field for faster calculation. 
 				</p>
+				
 				<p>v1.2.9-beta:
 					<br />Fixed bug causing long expressions to miscalculate. 
 				</p>
+				
 				<p>v1.2.0-beta:
 					<br />Added feature allowing subtraction to be used in expressions.
 					<br />Expressions can currently include addition and subtraction operators simultaniously.
@@ -79,6 +106,7 @@
 					<br />Fixed bug causing zero to equate as negative.
 					<br />Fixed error handling.
 				</p>
+				
 				<p>v1.1.1-beta:
 					<br />Add expression feature(currently only addition is accepted).
 					<br />Added feature allowing to convert from inch fraction (FIS) to decimal.
@@ -90,7 +118,7 @@
 		<div class="row">
 			<div class="col">
 				<p class="foot">
-					v1.2.10-beta<br />
+					v1.3.0-beta<br />
 					Contribute on <a href="https://github.com/isaacdozier/fis-calculator">Github</a>
 				</p>
 				
