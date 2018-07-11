@@ -19,7 +19,11 @@ function calculate() {
         if(isExpression(temp.value)){
             var tmp = doMath(temp.value)
             printOutput(temp.value,convertDecToFis(tmp))
-            carryoverValue(tmp)
+            
+            //carries output value over to input field
+            //meant for quickly doing calculations. 
+            //temporarly disabled
+            //carryoverValue(tmp)
         } 
         else {
             printError(temp.value)
