@@ -2,17 +2,27 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     	<meta name="description" content="An inch-fraction calculator for construction professionals." />
+    	<meta name="author" content="Isaac Dozier">
+    	<meta itemprop="name" content="Inch Fraction Calculator - Updates">
+    	<meta itemprop="image" content="">
+    	<meta name="mobile-web-app-capable" content="yes">
+    	<meta id="theme-color" name="theme-color" content="#000000">
+    	<base target="_blank">
+    	<!-- custom styles -->
+    	<link rel="stylesheet" type="text/css" href="style.css">
+     	 <!-- Bootstrap CSS -->
+     	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+     	 <!-- Add icon library -->
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+        <title>Inch Fraction Calculator - Updates</title>
+    </head>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-
-	<title>Inch Fraction Calculator</title>
-</head>
-
-<body>
+<body onload="loadContent('Instructions')">
 	<div id="Content" class="container">
 		<div class="row top">
 			<div class="col-sm-12 col-md-6 col-lg-4">
@@ -34,99 +44,35 @@
 				<p id="result"></p>
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-8 main">
-				<div class="row">
-					<!--
-					<div class="col">
-						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-						<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9409668607681174" data-ad-slot="2527368291" data-ad-format="auto"></ins>
-						<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-					</div>
-					-->
-				</div>
-				<div class="row info">
-					<div class="conversion col-md">
-						<h3>Convert Numbers</h3>
-						<p>
-							  Decimal to Inch Fraction
-						<br />0.000  =  00-00-00
-						<br />
-						<br />Inch Fraction to Decimal
-						<br />00.00.00  =  0.000
-						</p>
-					</div>
-					<div class="conversion col-md">	
-						<h3>  Convert Expressions</h3>
-						<p>   Short Expressions
-						<br />*add|subtract|multiply|divide   
-						<br />0.00 * 0.00         = 00-00-00
-						<br />0.00 * 00.00.00     = 00-00-00
-						<br />00.00.00 * 00.00.00 = 00-00-00
-						</p>
-						
-						<p>   Long Expressions
-						<br />*add|subtract OR *multiply|divide 
-						<br />[to be patched in future version]
-						<br />0.00 * 0.00 * 0.00             = 00-00-00
-						<br />0.00 * 00.00.00 * 0.00         = 00-00-00
-						<br />00.00.00 * 00.00.00 * 00.00.00 = 00-00-00
-						</p>
-					</div>
-				</div>
+				<div id="info" class="row info"></div>
 			</div>
 		</div>
 		
-		
-		
 		<div class="row">
-			<div class="updates col">	
-				<h4>Important Updates</h4>
-				<!--
-				<p>v1.2.0-beta:
-					<br />[description of update] 
-				</p>
-				-->
+			<div class="col">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9409668607681174" data-ad-slot="2527368291" data-ad-format="auto"></ins>
+				<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+				<br /><br />
 				
-				<p>v1.3.0-beta:
-					<br />Added Feature: division & multiplication.
-				</p>
-				
-				<p>v1.2.10-beta:
-					<br />Added Feature: expression result now auto populates the input field for faster calculation. 
-				</p>
-				
-				<p>v1.2.9-beta:
-					<br />Fixed bug causing long expressions to miscalculate. 
-				</p>
-				
-				<p>v1.2.0-beta:
-					<br />Added feature allowing subtraction to be used in expressions.
-					<br />Expressions can currently include addition and subtraction operators simultaniously.
-					<br />Negative numbers can also be used in expressions.
-					<br />Fixed bug causing negitive numbers to miscalculate.
-					<br />Fixed bug causing zero to equate as negative.
-					<br />Fixed error handling.
-				</p>
-				
-				<p>v1.1.1-beta:
-					<br />Add expression feature(currently only addition is accepted).
-					<br />Added feature allowing to convert from inch fraction (FIS) to decimal.
-					<br />Added feature to allow adding decimal numbers to inch fraction numbers.
-				</p>
+				<button title="version updates" onclick="loadContent(this.innerHTML)">Updates</button>
+				<button title="version updates" onclick="loadContent(this.innerHTML)">Instructions</button>
+				<br /><br />
 			</div>
 		</div>
 		
 		<div class="row">
 			<div class="col">
 				<p class="foot">
-					v1.3.1-beta<br />
+					v1.3.2-beta<br />
 					Contribute on <a href="https://github.com/isaacdozier/fis-calculator">Github</a>
 				</p>
-				
 			</div>
 		</div>
 	</div>
 
 	<script src="calculate.js"></script>
+	<script src="pages.js"></script>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112421020-1"></script>
